@@ -12,7 +12,7 @@
   <a href="INDEX.md"><img alt="16,500+ skills" src="https://img.shields.io/badge/SKILLS-16%2C500%2B-14B8A6?style=for-the-badge&labelColor=030712&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMxNEI4QTYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIgMlYyMk0yIDEyaDIwIi8+PC9zdmc+"></a>
   <img alt="Markdown skill packages" src="https://img.shields.io/badge/PACKAGE-SKILL.md-06B6D4?style=for-the-badge&labelColor=030712&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwNkI2RDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTQgMkg2YTIgMiAwIDAgMCAyIDJ2MjAiLz48cGF0aCBkPSJNMTQgMnYyMCIvPjxtYXJrIGlkPSJhIiBtYXJrZXJXaWR0aD0iNCIgbWFya2VySGVpZ2h0PSI0IiByZWZYPSIwIiByZWZZPSIyIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0wIDBoNG0tNCA0djQiIHN0cm9rZT0iIzA2QjZENCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9tYXJrPjwvc3ZnPg==">
   <img alt="Bounded tool workflows" src="https://img.shields.io/badge/WORKFLOWS-BOUNDED%20%26%20VERIFIABLE-8B5CF6?style=for-the-badge&labelColor=030712&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4QjVDRjYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIgMjJDMzUgMjIgNCAxMyA0IDRhOC41IDguNSAwIDAgMSAxNyAwYzAgNi0xMSA3LjUtMTIgOS41Ii8+PHBhdGggZD0iTTkgMTJoNiIvPjxwYXRoIGQ9Ik0xMiA5djYiLz48L3N2Zz4=">
-  <img alt="No publication license assigned" src="https://img.shields.io/badge/LICENSE-NOT%20ASSIGNED-F59E0B?style=for-the-badge&labelColor=030712&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSIyIi8+PHBhdGggZD0iTTEyIDE1VjkiLz48cGF0aCBkPSJNMTIgMTd2LjAxIi8+PC9zdmc+">
+  <img alt="License: MIT" src="https://img.shields.io/badge/LICENSE-MIT-14B8A6?style=for-the-badge&labelColor=030712&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMxNEI4QTYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSIyIi8+PHBhdGggZD0iTTkgMTJoNiIvPjxwYXRoIGQ9Ik0xMiA5djYiLz48L3N2Zz4=">
   <img alt="Last commit" src="https://img.shields.io/github/last-commit/Manoj-11-Dahal/try-Skills?style=for-the-badge&labelColor=030712&color=64748B">
   <img alt="Repo size" src="https://img.shields.io/github/repo-size/Manoj-11-Dahal/try-Skills?style=for-the-badge&labelColor=030712&color=64748B">
 </p>
@@ -242,7 +242,7 @@ See [`skills/README.md`](skills/README.md) for the current tree and counts, and 
 
 The skills were **independently authored** for this repository. Public specifications, catalogs, and documentation are recorded as topic or format references; **no upstream skill text or code is bundled**. See [`references/source-notes.md`](references/source-notes.md) for the scope and limits of that research.
 
-**⚠ No publication license has been assigned.** Until a license is added, do not assume permission to reuse or redistribute repository content. See [`LICENSE_STATUS.md`](LICENSE_STATUS.md).
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details. See [`LICENSE_STATUS.md`](LICENSE_STATUS.md) for a summary.
 
 ---
 
@@ -253,5 +253,5 @@ The skills were **independently authored** for this repository. Public specifica
 <p align="center">
   <a href="https://github.com/Manoj-11-Dahal/try-Skills"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-Manoj--11--Dahal%2Ftry--Skills-14B8A6?style=flat-square&labelColor=030712"></a>
   <a href="INDEX.md"><img alt="Browse Skills" src="https://img.shields.io/badge/Browse-INDEX.md-06B6D4?style=flat-square&labelColor=030712"></a>
-  <a href="LICENSE_STATUS.md"><img alt="License" src="https://img.shields.io/badge/License-NOT%20ASSIGNED-F59E0B?style=flat-square&labelColor=030712"></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-14B8A6?style=flat-square&labelColor=030712"></a>
 </p>
