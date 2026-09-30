@@ -43,18 +43,37 @@ Skills turn a task into an evidence-led workflow: define scope → inspect the b
 
 ## Total Skills by Category
 
-| Category | Subcategories | Skills | Description |
-|---|---:|---:|---|
-| [AI & Agent Systems](skills/ai-agent-systems/) | 7 | 2,206 | Agent architecture, orchestration, prompts, memory, tools, evaluation, safety, reasoning, self-improvement, MCP |
-| [Software & Development](skills/software-development/) | 6 | 2,516 | Languages, frameworks, frontend, backend APIs, architecture, devtools, testing, implementation |
-| [Cloud, Infrastructure & Security](skills/cloud-infrastructure-security/) | 6 | 1,659 | Cloud platforms, containers, Kubernetes, networking, DevOps, security, authorized testing |
-| [Data & Analytics](skills/data-analytics/) | 6 | 986 | Data engineering, databases, analytics, visualization, spreadsheets, geospatial, ML patterns |
-| [Business & Operations](skills/business-operations/) | 10 | 2,336 | Finance, product, marketing, sales, people ops, legal, retail, supply chain, insurance, management |
-| [Science, Health & Research](skills/science-health-research/) | 8 | 973 | Clinical, trials, life sciences, physical sciences, statistics, medical imaging, deep research |
-| [Engineering & Industry](skills/engineering-industry/) | 9 | 2,206 | Agriculture, construction, energy, manufacturing, electronics, robotics, PCB, home design |
-| [Creative, Media & Design](skills/creative-media-design/) | 10 | 3,307 | Visual design, UX, games, 3D, audio/video, writing, Blender, music, sound, video production |
-| [Education & Public Service](skills/education-public-service/) | 5 | 311 | Curriculum, assessment, civic gov, public service, nonprofit |
-| **Total** | **67** | **16,500+** | — |
+<details>
+<summary><strong>📊 Category Distribution (click to expand)</strong></summary>
+
+| Rank | Category | Subcats | Skills | % of Total | Focus Areas |
+|---:|---|---:|---:|---:|---|
+| 1 | 🎨 **[Creative, Media & Design](skills/creative-media-design/)** | 10 | **3,307** | 20.0% | Visual design, UX, games, 3D, audio/video, Blender, music, sound, video production |
+| 2 | 💻 **[Software & Development](skills/software-development/)** | 6 | **2,516** | 15.2% | Languages, frameworks, frontend, backend APIs, architecture, devtools, testing, implementation |
+| 3 | 🏢 **[Business & Operations](skills/business-operations/)** | 10 | **2,336** | 14.2% | Finance, product, marketing, sales, people ops, legal, retail, supply chain, insurance, management |
+| 4 | 🤖 **[AI & Agent Systems](skills/ai-agent-systems/)** | 7 | **2,206** | 13.4% | Agent architecture, orchestration, prompts, memory, tools, evaluation, safety, reasoning, self-improvement, MCP |
+| 5 | ⚙️ **[Engineering & Industry](skills/engineering-industry/)** | 9 | **2,206** | 13.4% | Agriculture, construction, energy, manufacturing, electronics, robotics, PCB, home design |
+| 6 | ☁️ **[Cloud, Infrastructure & Security](skills/cloud-infrastructure-security/)** | 6 | **1,659** | 10.1% | Cloud platforms, containers, Kubernetes, networking, DevOps, security, authorized testing |
+| 7 | 📊 **[Data & Analytics](skills/data-analytics/)** | 6 | **986** | 6.0% | Data engineering, databases, analytics, visualization, spreadsheets, geospatial, ML patterns |
+| 8 | 🔬 **[Science, Health & Research](skills/science-health-research/)** | 8 | **973** | 5.9% | Clinical, trials, life sciences, physical sciences, statistics, medical imaging, deep research |
+| 9 | 🎓 **[Education & Public Service](skills/education-public-service/)** | 5 | **311** | 1.9% | Curriculum, assessment, civic gov, public service, nonprofit |
+| | **Total** | **67** | **16,500+** | **100%** | — |
+
+</details>
+
+### Visual Distribution
+
+```
+Creative, Media & Design      ████████████████████  3,307 (20.0%)
+Software & Development        ██████████████████    2,516 (15.2%)
+Business & Operations         █████████████████     2,336 (14.2%)
+AI & Agent Systems            █████████████████     2,206 (13.4%)
+Engineering & Industry        █████████████████     2,206 (13.4%)
+Cloud, Infra & Security       ██████████████        1,659 (10.1%)
+Data & Analytics              ██████                986   (6.0%)
+Science, Health & Research    ██████                973   (5.9%)
+Education & Public Service    █                     311   (1.9%)
+```
 
 ---
 
