@@ -67,6 +67,21 @@ The collection spans agent design and tool loops; public-web research and source
 
 All skill folders are organized into the approved mind map: nine top-level categories and 65 subject subfolders, with no `other` bucket. The 10,000 internet-discovered additions extend the collection across bounded agent reasoning and updates, MCP, software implementation and testing, authorized security, management, deep research, pattern recognition, PCB and home design, Blender, music, sound, and video workflows. See [`skills/README.md`](skills/README.md) for the current tree and counts, and [`internet-skill-expansion-2026-09-30.md`](references/internet-skill-expansion-2026-09-30.md) for expansion totals and provenance.
 
+## Total Skills by Category
+
+| Category | Subcategories | Skills |
+|---|---|---|
+| [AI & Agent Systems](skills/ai-agent-systems/) | 7 | 2,206 |
+| [Software & Development](skills/software-development/) | 6 | 2,516 |
+| [Cloud, Infrastructure & Security](skills/cloud-infrastructure-security/) | 6 | 1,659 |
+| [Data & Analytics](skills/data-analytics/) | 6 | 986 |
+| [Business & Operations](skills/business-operations/) | 10 | 2,336 |
+| [Science, Health & Research](skills/science-health-research/) | 8 | 973 |
+| [Engineering & Industry](skills/engineering-industry/) | 9 | 2,206 |
+| [Creative, Media & Design](skills/creative-media-design/) | 10 | 3,307 |
+| [Education & Public Service](skills/education-public-service/) | 5 | 311 |
+| **Total** | **67** | **16,500** |
+
 ### Quick start
 
 1. Browse [`INDEX.md`](INDEX.md) and choose a skill that matches the task.
