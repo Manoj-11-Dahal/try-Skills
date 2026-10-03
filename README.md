@@ -8,6 +8,10 @@
   <img src="assets/agent-loop-motion.gif" alt="Animated bounded agent loop: scope, inspect, act, verify, report" width="100%">
 </p>
 
+```
+npx skills add Manoj-11-Dahal/try-Skills
+```
+
 <p align="center">
   <a href="INDEX.md"><img alt="16,500+ skills" src="https://img.shields.io/badge/SKILLS-16%2C500%2B-14B8A6?style=for-the-badge&labelColor=030712&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMxNEI4QTYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIgMlYyMk0yIDEyaDIwIi8+PC9zdmc+"></a>
   <img alt="Markdown skill packages" src="https://img.shields.io/badge/PACKAGE-SKILL.md-06B6D4?style=for-the-badge&labelColor=030712&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwNkI2RDQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTQgMkg2YTIgMiAwIDAgMCAyIDJ2MjAiLz48cGF0aCBkPSJNMTQgMnYyMCIvPjxtYXJrIGlkPSJhIiBtYXJrZXJXaWR0aD0iNCIgbWFya2VySGVpZ2h0PSI0IiByZWZYPSIwIiByZWZZPSIyIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0wIDBoNG0tNCA0djQiIHN0cm9rZT0iIzA2QjZENCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9tYXJrPjwvc3ZnPg==">
