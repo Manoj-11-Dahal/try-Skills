@@ -1,0 +1,37 @@
+name: Skill library quality
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.10', '3.14']
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Validate all skills and catalog coverage
+        run: python scripts/validate_skills.py
+      - name: Check generated metadata
+        run: python scripts/sync_catalog.py --check
+      - name: Run regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Check whitespace
+        run: git diff --check

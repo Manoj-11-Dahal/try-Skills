@@ -1,31 +1,9 @@
-"""Canonical nine-category taxonomy for repository skill folders."""
+"""Current category taxonomy with legacy topic-classification rules for repository skill folders."""
 from __future__ import annotations
 
 import re
 
-CATEGORIES = {
-    "ai-agent-systems": "AI & Agent Systems",
-    "software-development": "Software & Development",
-    "cloud-infrastructure-security": "Cloud, Infrastructure & Security",
-    "data-analytics": "Data & Analytics",
-    "business-operations": "Business & Operations",
-    "science-health-research": "Science, Health & Research",
-    "engineering-industry": "Engineering & Industry",
-    "creative-media-design": "Creative, Media & Design",
-    "education-public-service": "Education & Public Service",
-}
-
-CATEGORY_DESCRIPTIONS = {
-    "ai-agent-systems": "Agent design, model interaction, prompt/context work, tool use, MCP, memory, and agent evaluation.",
-    "software-development": "Programming, APIs, application development, software architecture, testing, and release workflows.",
-    "cloud-infrastructure-security": "Cloud platforms, operating systems, containers, networking, DevOps, reliability, and cybersecurity.",
-    "data-analytics": "Data engineering, databases, analytics, dashboards, spreadsheets, and geospatial data workflows.",
-    "business-operations": "Finance, legal, insurance, workforce, product, marketing, sales, retail, hospitality, and supply operations.",
-    "science-health-research": "Healthcare administration, clinical research, life and physical sciences, evidence, and research methods.",
-    "engineering-industry": "Agriculture, construction, energy, climate assurance, manufacturing, hardware, robotics, and industrial systems.",
-    "creative-media-design": "Visual and interaction design, games, image, audio, video, writing, and media production.",
-    "education-public-service": "Education, learning design, civic administration, government, and nonprofit/public-service workflows.",
-}
+from skill_tree import CATEGORIES, CATEGORY_DESCRIPTIONS, destination_category
 
 # The recent industry packs are explicitly assigned by their subject, rather
 # than by a keyword that may appear in a generated skill's title.
@@ -321,7 +299,7 @@ def _has_prefix(slug: str, prefix: str) -> bool:
     return slug == prefix or slug.startswith(prefix + "-")
 
 
-def classification_for_skill(slug: str, description: str = "") -> tuple[str, str]:
+def _legacy_classification_for_skill(slug: str, description: str = "") -> tuple[str, str]:
     """Return a category and the rule that assigned it, for auditability."""
     if slug in SKILL_OVERRIDES:
         return SKILL_OVERRIDES[slug], "reviewed exact-slug override"
@@ -340,6 +318,21 @@ def classification_for_skill(slug: str, description: str = "") -> tuple[str, str
     return "software-development", "general workflow fallback"
 
 
+def classification_for_skill(slug: str, description: str = "") -> tuple[str, str]:
+    """Map legacy topic rules onto the current twelve-category tree."""
+    from skill_taxonomy import EXPANSION_PREFIX_RULES, _legacy_classify_subcategory
+
+    # Topic-pack namespaces are explicit; never let generic suffixes such as
+    # "test" or "plan" override the subject of these newer families.
+    for category, rules in EXPANSION_PREFIX_RULES.items():
+        for prefix, branch in rules:
+            if slug.startswith(prefix):
+                return destination_category(category, branch), f"topic-pack namespace: {prefix}"
+    category, reason = _legacy_classification_for_skill(slug, description)
+    branch = _legacy_classify_subcategory(category, slug, description)[0]
+    return destination_category(category, branch), reason
+
+
 def category_for_skill(slug: str, description: str = "") -> str:
-    """Return one of the nine categories using explicit domains then skill topic."""
+    """Return a current category using explicit domains then skill topic."""
     return classification_for_skill(slug, description)[0]

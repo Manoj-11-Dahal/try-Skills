@@ -35,7 +35,7 @@ class SkillQualityTests(unittest.TestCase):
             with self.subTest(skill=path.parent.name):
                 self.assertEqual(validate_skills.validate_skill(path), [])
 
-    def test_skills_are_nested_in_one_of_nine_categories(self):
+    def test_skills_are_nested_in_an_approved_category(self):
         paths = validate_skills.discover_skills()
         self.assertEqual(set(path.relative_to(validate_skills.SKILLS_ROOT).parts[0] for path in paths), set(validate_skills.CATEGORIES))
         self.assertTrue(all(len(path.relative_to(validate_skills.SKILLS_ROOT).parts) == 4 for path in paths))

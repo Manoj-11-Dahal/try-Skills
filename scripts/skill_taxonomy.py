@@ -7,9 +7,9 @@ from __future__ import annotations
 
 import re
 
-from skill_categories import CATEGORIES
+from skill_tree import CATEGORIES, LEGACY_PARENT, destination_category, migrate_labels
 
-SUBCATEGORY_LABELS = {
+LEGACY_SUBCATEGORY_LABELS = {
     "ai-agent-systems": {
         "agent-architecture-orchestration": "Agent architecture & orchestration",
         "prompts-context-memory": "Prompts, context & memory",
@@ -94,6 +94,8 @@ SUBCATEGORY_LABELS = {
         "nonprofit-community": "Nonprofit & community",
     },
 }
+
+SUBCATEGORY_LABELS = migrate_labels(LEGACY_SUBCATEGORY_LABELS)
 
 # Long, specific topic roots are checked before keyword scoring. These are
 # intentionally scoped to known subject prefixes; generic operation suffixes
@@ -302,9 +304,9 @@ EXPANSION_PREFIX_RULES = {
 }
 
 
-def classify_subcategory(category: str, slug: str, description: str = "") -> tuple[str, str, int, int]:
+def _legacy_classify_subcategory(category: str, slug: str, description: str = "") -> tuple[str, str, int, int]:
     """Return (subcategory, reason, score, margin) using only local metadata."""
-    if category not in SUBCATEGORY_LABELS:
+    if category not in LEGACY_SUBCATEGORY_LABELS:
         raise ValueError(f"unknown top-level category: {category}")
     rules = PREFIX_RULES[category]
     for prefix, subcategory in EXPANSION_PREFIX_RULES.get(category, ()):
@@ -439,15 +441,26 @@ def classify_subcategory(category: str, slug: str, description: str = "") -> tup
     return best, "metadata keywords: " + ", ".join(hits[:5]), best_score, margin
 
 
+def classify_subcategory(category: str, slug: str, description: str = "") -> tuple[str, str, int, int]:
+    """Resolve a topic within a current category; reject inconsistent placement."""
+    legacy = LEGACY_PARENT.get(category, category)
+    result = _legacy_classify_subcategory(legacy, slug, description)
+    destination = destination_category(legacy, result[0])
+    if category in CATEGORIES and destination != category:
+        raise ValueError(f"topic belongs in {destination}/{result[0]}, not {category}")
+    return result
+
+
 def skill_path(root, category: str, slug: str, description: str = ""):
     """Return the canonical category/subcategory/skill directory path."""
     subcategory, _, _, _ = classify_subcategory(category, slug, description)
-    return root / category / subcategory / slug
+    return root / destination_category(LEGACY_PARENT.get(category, category), subcategory) / subcategory / slug
 
 
 def relative_skill_path(category: str, slug: str, description: str = "") -> str:
     """Return the INDEX-style relative path from repository root."""
     subcategory, _, _, _ = classify_subcategory(category, slug, description)
+    category = destination_category(LEGACY_PARENT.get(category, category), subcategory)
     return f"skills/{category}/{subcategory}/{slug}/SKILL.md"
 
 

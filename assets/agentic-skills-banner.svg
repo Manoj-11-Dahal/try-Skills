@@ -1,148 +1,124 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="500" viewBox="0 0 1440 500" role="img" aria-labelledby="title desc">
-  <title id="title">Agentic Skills — 16,500 workflows for tool-using agents</title>
-  <desc id="desc">A modern, professional banner for the Agentic Skills library showing the agent loop workflow from scope through verification.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="680" viewBox="0 0 1440 680" role="img" aria-labelledby="banner-title banner-desc">
+  <title id="banner-title">Agentic Skills — 15,860 workflows for tool-using agents</title>
+  <desc id="banner-desc">A deep forest-green banner with lime typography and a connected five-level skill tree. The example follows Software and Development, Implementation and Code Architecture, Python services, API evolution, and a Scope and Baseline Record skill. The footer shows current category, subject, topic, workflow-group, and skill counts.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#030712"/>
-      <stop offset="0.35" stop-color="#0B1320"/>
-      <stop offset="0.7" stop-color="#0A1A2A"/>
-      <stop offset="1" stop-color="#020A14"/>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11281f"/>
+      <stop offset="1" stop-color="#081710"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#14B8A6"/>
-      <stop offset="0.35" stop-color="#06B6D4"/>
-      <stop offset="0.7" stop-color="#8B5CF6"/>
-      <stop offset="1" stop-color="#EC4899"/>
-    </linearGradient>
-    <linearGradient id="accentReverse" x1="1" y1="0" x2="0" y2="0">
-      <stop offset="0" stop-color="#14B8A6"/>
-      <stop offset="0.35" stop-color="#06B6D4"/>
-      <stop offset="0.7" stop-color="#8B5CF6"/>
-      <stop offset="1" stop-color="#EC4899"/>
-    </linearGradient>
-    <linearGradient id="textGradient" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#14B8A6"/>
-      <stop offset="0.5" stop-color="#06B6D4"/>
-      <stop offset="1" stop-color="#8B5CF6"/>
-    </linearGradient>
-    <linearGradient id="textGradient2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#EC4899"/>
-      <stop offset="0.5" stop-color="#F97316"/>
-      <stop offset="1" stop-color="#EAB308"/>
-    </linearGradient>
-    <radialGradient id="glow1" cx="20%" cy="30%" r="45%">
-      <stop offset="0" stop-color="#14B8A6" stop-opacity="0.18"/>
-      <stop offset="0.5" stop-color="#06B6D4" stop-opacity="0.08"/>
-      <stop offset="1" stop-color="#030712" stop-opacity="0"/>
+    <radialGradient id="canopy" cx="90%" cy="8%" r="76%">
+      <stop offset="0" stop-color="#355b35" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#355b35" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glow2" cx="80%" cy="70%" r="50%">
-      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.15"/>
-      <stop offset="0.5" stop-color="#EC4899" stop-opacity="0.08"/>
-      <stop offset="1" stop-color="#030712" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="glow3" cx="50%" cy="50%" r="35%">
-      <stop offset="0" stop-color="#06B6D4" stop-opacity="0.12"/>
-      <stop offset="1" stop-color="#030712" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-      <path d="M50 0H0V50" fill="none" stroke="#1E293B" stroke-opacity="0.5" stroke-width="1"/>
+    <linearGradient id="branch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4c7358"/>
+      <stop offset="1" stop-color="#d5fc86"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="0.8" fill="#a5c0aa" fill-opacity="0.12"/>
     </pattern>
-    <pattern id="dots" width="25" height="25" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1" fill="#1E293B" opacity="0.3"/>
-    </pattern>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="12" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="textGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="innerGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feComposite in="blur" in2="SourceGraphic" operator="over"/>
-    </filter>
-    <linearGradient id="pillBg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0F1A2A"/>
-      <stop offset="1" stop-color="#08121C"/>
-    </linearGradient>
-    <linearGradient id="pillBorder" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#14B8A6"/>
-      <stop offset="1" stop-color="#8B5CF6"/>
-    </linearGradient>
-    <linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="0.15" stop-color="#E2E8F0"/>
-      <stop offset="0.5" stop-color="#94A3B8"/>
-      <stop offset="1" stop-color="#64748B"/>
-    </linearGradient>
+    <clipPath id="frame">
+      <rect width="1440" height="680" rx="24"/>
+    </clipPath>
   </defs>
-  <rect width="1440" height="500" rx="32" fill="url(#bg)"/>
-  <rect width="1440" height="500" rx="32" fill="url(#grid)"/>
-  <rect width="1440" height="500" rx="32" fill="url(#dots)"/>
-  <rect width="1440" height="500" rx="32" fill="url(#glow1)"/>
-  <rect width="1440" height="500" rx="32" fill="url(#glow2)"/>
-  <rect width="1440" height="500" rx="32" fill="url(#glow3)"/>
 
-  <path d="M0 450 C200 350 400 520 600 430 S1000 300 1440 420" fill="none" stroke="url(#accent)" stroke-opacity="0.15" stroke-width="2"/>
-  <path d="M0 470 C180 400 380 550 580 450 S980 330 1440 440" fill="none" stroke="url(#accentReverse)" stroke-opacity="0.1" stroke-width="1.5" stroke-dasharray="8 12"/>
+  <g clip-path="url(#frame)">
+    <rect width="1440" height="680" fill="url(#background)"/>
+    <rect width="1440" height="680" fill="url(#canopy)"/>
+    <rect x="704" width="736" height="548" fill="url(#dots)"/>
+    <path d="M704 0v548" stroke="#294032" stroke-opacity="0.65"/>
+    <path d="M0 548h1440" stroke="#36503e"/>
+    <rect y="549" width="1440" height="131" fill="#081710" fill-opacity="0.58"/>
 
-  <g fill="none" stroke="url(#accent)" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round">
-    <path d="M1020 220 C1100 220 1100 140 1180 140 H1270"/>
-    <path d="M1020 220 H1200 C1260 220 1260 290 1310 290 H1390"/>
-    <path d="M1140 220 C1190 220 1190 350 1240 350"/>
-    <path d="M1180 140 C1210 140 1220 95 1255 95"/>
-  </g>
-  <g filter="url(#glow)">
-    <circle cx="1020" cy="220" r="8" fill="#14B8A6"/>
-    <circle cx="1180" cy="140" r="7" fill="#06B6D4"/>
-    <circle cx="1200" cy="220" r="6" fill="#8B5CF6"/>
-    <circle cx="1310" cy="290" r="7" fill="#14B8A6"/>
-    <circle cx="1255" cy="95" r="5" fill="#EC4899"/>
-  </g>
-  <g fill="#A5B4FC" fill-opacity="0.6">
-    <circle cx="1230" cy="80" r="2"/><circle cx="1420" cy="105" r="2"/>
-    <circle cx="1380" cy="200" r="2"/><circle cx="1280" cy="275" r="2"/>
-    <circle cx="1120" cy="340" r="2"/><circle cx="1390" cy="395" r="2"/>
-  </g>
-  <circle cx="1200" cy="220" r="160" fill="none" stroke="#38BDF8" stroke-opacity="0.08" stroke-width="1"/>
-  <circle cx="1200" cy="220" r="125" fill="none" stroke="#14B8A6" stroke-opacity="0.1" stroke-width="1" stroke-dasharray="6 12"/>
-  <circle cx="1200" cy="220" r="88" fill="#05101C" fill-opacity="0.9" stroke="url(#pillBorder)" stroke-opacity="0.7" stroke-width="2"/>
-  <text x="1200" y="212" text-anchor="middle" fill="#FFFFFF" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" letter-spacing="3" filter="url(#textGlow)">AGENT LOOP</text>
-  <text x="1200" y="242" text-anchor="middle" fill="#14B8A6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="600" letter-spacing="2.5">BOUNDED · VERIFIED · REPRODUCIBLE</text>
+    <!-- Brand mark: one trunk, three connected leaves. -->
+    <g transform="translate(64 41)" fill="none" stroke="#d5fc86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 6v23M7 14h16M7 26h16"/>
+      <rect x="2" y="0" width="10" height="8" rx="2" fill="#d5fc86" stroke="none"/>
+      <rect x="22" y="10" width="10" height="8" rx="2"/>
+      <rect x="22" y="22" width="10" height="8" rx="2"/>
+    </g>
+    <g font-family="Arial, Helvetica, sans-serif">
+      <text x="114" y="62" fill="#c1d0c5" font-size="13" font-weight="700" letter-spacing="2.2">A LIBRARY FOR TOOL-USING AGENTS</text>
+      <text x="64" y="193" fill="#f4f2e9" font-size="91" font-weight="800" letter-spacing="-4">AGENTIC</text>
+      <text x="60" y="298" fill="#d5fc86" font-size="113" font-weight="800" letter-spacing="-5">SKILLS<tspan fill="#f4f2e9">.</tspan></text>
+      <text x="68" y="356" fill="#f4f2e9" font-size="26" letter-spacing="-0.5">Find the right workflow.</text>
+      <text x="68" y="393" fill="#b0c2b5" font-size="21">Follow the branch. Make it verifiable.</text>
 
-  <rect x="82" y="55" width="340" height="44" rx="22" fill="url(#pillBg)" stroke="url(#pillBorder)" stroke-opacity="0.6" stroke-width="1.5"/>
-  <circle cx="107" cy="77" r="6" fill="#14B8A6" filter="url(#glow)"/>
-  <text x="125" y="82" fill="#5EEAD4" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="1.5">A PRACTICAL SKILL LIBRARY</text>
+      <rect x="64" y="430" width="574" height="48" rx="10" fill="#1b3326" stroke="#385341"/>
+      <g fill="#d7e2d8" font-size="14" font-weight="600">
+        <text x="84" y="460">CATEGORY</text>
+        <text x="206" y="460">SUBJECT</text>
+        <text x="319" y="460">TOPIC</text>
+        <text x="410" y="460">CONTEXT</text>
+        <text x="534" y="460" fill="#d5fc86">SKILL</text>
+      </g>
+      <g fill="none" stroke="#91af79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m181 450 5 5-5 5M174 455h12"/>
+        <path d="m293 450 5 5-5 5M286 455h12"/>
+        <path d="m384 450 5 5-5 5M377 455h12"/>
+        <path d="m508 450 5 5-5 5M501 455h12"/>
+      </g>
+      <text x="68" y="512" fill="#94af9c" font-size="11" font-weight="700" letter-spacing="1.7">PLAIN MARKDOWN. PURPOSEFUL STRUCTURE.</text>
 
-  <text x="78" y="175" fill="url(#heroGradient)" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="900" letter-spacing="-3" filter="url(#textGlow)">AGENTIC</text>
-  <text x="78" y="255" fill="url(#textGradient)" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="900" letter-spacing="-3" filter="url(#textGlow)">SKILLS</text>
-  <text x="83" y="300" fill="#E2E8F0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="400" letter-spacing="-0.5">16,500+ task-focused workflows for tool-using agents</text>
-  <text x="83" y="330" fill="#94A3B8" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="400">Evidence in. Measurable feedback. Safe, explicit stop conditions.</text>
+      <!-- One real path through the library; indents represent navigation depth. -->
+      <text x="760" y="62" fill="#adc3b3" font-size="12" font-weight="700" letter-spacing="2.1">FOLLOW A BRANCH</text>
+      <text x="1374" y="62" fill="#adc3b3" font-family="monospace" font-size="12" text-anchor="end">01 / EXPLORE</text>
+      <g fill="none" stroke="url(#branch)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M778 164v29q0 12 12 12h18"/>
+        <path d="M814 248v29q0 12 12 12h18"/>
+        <path d="M850 332v29q0 12 12 12h18"/>
+        <path d="M886 416v29q0 12 12 12h18"/>
+      </g>
 
-  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="1.2" text-anchor="middle">
-    <rect x="82" y="378" width="138" height="46" rx="14" fill="url(#pillBg)" stroke="#14B8A6" stroke-opacity="0.7" stroke-width="1.5" filter="url(#innerGlow)"/>
-    <text x="151" y="406" fill="#5EEAD4">SCOPE</text>
-    <path d="M229 401h32m-7-7 7 7-7 7" stroke="#475569" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <rect x="270" y="378" width="138" height="46" rx="14" fill="url(#pillBg)" stroke="#06B6D4" stroke-opacity="0.7" stroke-width="1.5" filter="url(#innerGlow)"/>
-    <text x="339" y="406" fill="#67E8F9">INSPECT</text>
-    <path d="M417 401h32m-7-7 7 7-7 7" stroke="#475569" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <rect x="458" y="378" width="138" height="46" rx="14" fill="url(#pillBg)" stroke="#06B6D4" stroke-opacity="0.7" stroke-width="1.5" filter="url(#innerGlow)"/>
-    <text x="527" y="406" fill="#67E8F9">ACT</text>
-    <path d="M605 401h32m-7-7 7 7-7 7" stroke="#475569" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <rect x="646" y="378" width="138" height="46" rx="14" fill="url(#pillBg)" stroke="#8B5CF6" stroke-opacity="0.75" stroke-width="1.5" filter="url(#innerGlow)"/>
-    <text x="715" y="406" fill="#C4B5FD">VERIFY</text>
-  </g>
-  <text x="84" y="452" fill="#64748B" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="500" letter-spacing="1.2">SEARCH  •  READ  •  TEST  •  WRITE  •  REVIEW</text>
+      <rect x="760" y="100" width="614" height="64" rx="12" fill="#142b20" stroke="#3b5945"/>
+      <circle cx="790" cy="132" r="12" fill="#253f2f"/>
+      <text x="790" y="136" text-anchor="middle" fill="#bdd2b5" font-family="monospace" font-size="11">01</text>
+      <text x="816" y="122" fill="#9fb5a6" font-size="10" font-weight="700" letter-spacing="1.8">CATEGORY</text>
+      <text x="816" y="146" fill="#edf2e8" font-size="19" font-weight="600">Software &amp; Development</text>
+      <path d="m1344 128 5 4-5 4" fill="none" stroke="#8eaa96" stroke-width="1.5" stroke-linecap="round"/>
 
-  <g transform="translate(1100, 40)">
-    <rect x="0" y="0" width="280" height="120" rx="16" fill="#08121C" fill-opacity="0.8" stroke="url(#pillBorder)" stroke-opacity="0.4" stroke-width="1"/>
-    <text x="140" y="32" text-anchor="middle" fill="#14B8A6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="1.5">KEY CAPABILITIES</text>
-    <text x="20" y="58" fill="#E2E8F0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="500">✓  Deterministic workflows</text>
-    <text x="20" y="78" fill="#E2E8F0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="500">✓  Built-in verification</text>
-    <text x="20" y="98" fill="#E2E8F0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="500">✓  Zero-config adoption</text>
-    <text x="150" y="58" fill="#E2E8F0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="500">✓  Cross-language support</text>
-    <text x="150" y="78" fill="#E2E8F0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="500">✓  CI/CD ready</text>
-    <text x="150" y="98" fill="#E2E8F0" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="500">✓  Extensible by design</text>
+      <rect x="796" y="184" width="578" height="64" rx="12" fill="#172f22" stroke="#42644b"/>
+      <circle cx="826" cy="216" r="12" fill="#294732"/>
+      <text x="826" y="220" text-anchor="middle" fill="#c5d9b6" font-family="monospace" font-size="11">02</text>
+      <text x="852" y="206" fill="#a5bea8" font-size="10" font-weight="700" letter-spacing="1.8">SUBJECT</text>
+      <text x="852" y="230" fill="#edf2e8" font-size="19" font-weight="600">Implementation &amp; Code Architecture</text>
+
+      <rect x="832" y="268" width="542" height="64" rx="12" fill="#1b3525" stroke="#54774e"/>
+      <circle cx="862" cy="300" r="12" fill="#345331"/>
+      <text x="862" y="304" text-anchor="middle" fill="#d3e6b6" font-family="monospace" font-size="11">03</text>
+      <text x="888" y="290" fill="#b0c79d" font-size="10" font-weight="700" letter-spacing="1.8">TOPIC</text>
+      <text x="888" y="314" fill="#edf2e8" font-size="19" font-weight="600">Python services</text>
+      <path d="M1326 295h20m-20 5h14m-14 5h20" fill="none" stroke="#7e9a69" stroke-width="1.5" stroke-linecap="round"/>
+
+      <rect x="868" y="352" width="506" height="64" rx="12" fill="#253e27" stroke="#789556"/>
+      <circle cx="898" cy="384" r="12" fill="#496334"/>
+      <text x="898" y="388" text-anchor="middle" fill="#e1f4be" font-family="monospace" font-size="11">04</text>
+      <text x="924" y="374" fill="#c3d9a8" font-size="10" font-weight="700" letter-spacing="1.8">CONTEXT / WORKFLOW GROUP</text>
+      <text x="924" y="398" fill="#edf2e8" font-size="19" font-weight="600">API evolution</text>
+
+      <rect x="904" y="436" width="470" height="76" rx="12" fill="#d5fc86"/>
+      <rect x="926" y="458" width="27" height="32" rx="4" fill="none" stroke="#314c23" stroke-width="1.6"/>
+      <path d="M933 468h13m-13 6h13m-13 6h8" fill="none" stroke="#314c23" stroke-width="1.6" stroke-linecap="round"/>
+      <text x="972" y="460" fill="#3e592c" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1.5">SKILL.md</text>
+      <text x="972" y="488" fill="#152910" font-size="22" font-weight="700" letter-spacing="-0.4">Scope &amp; baseline record</text>
+
+      <!-- Values with data-count attributes are refreshed by sync_catalog.py. -->
+      <g fill="#f4f2e9" font-size="40" font-weight="700" letter-spacing="-1.4">
+        <text x="64" y="611" data-count="categories">12</text>
+        <text x="335" y="611" data-count="subjects">65</text>
+        <text x="606" y="611" data-count="topics">724</text>
+        <text x="877" y="611" data-count="groups">1,629</text>
+        <text x="1148" y="611" data-count="skills" fill="#d5fc86">15,860</text>
+      </g>
+      <g fill="#a8bfaf" font-size="11" font-weight="700" letter-spacing="1.7">
+        <text x="66" y="641">CATEGORIES</text>
+        <text x="337" y="641">SUBJECTS</text>
+        <text x="608" y="641">TOPIC BRANCHES</text>
+        <text x="879" y="641">WORKFLOW GROUPS</text>
+        <text x="1150" y="641">SKILL PACKAGES</text>
+      </g>
+      <path d="M301 580v61m271-61v61m271-61v61m271-61v61" stroke="#2e4736"/>
+    </g>
+    <rect x="0.5" y="0.5" width="1439" height="679" rx="23.5" fill="none" stroke="#4b6751" stroke-opacity="0.65"/>
   </g>
 </svg>

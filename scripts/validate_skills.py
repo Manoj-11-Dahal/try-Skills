@@ -2,9 +2,11 @@
 """Validate the local agentic-skills repository without third-party packages."""
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -15,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = ROOT / "skills"
 FRONTMATTER_KEYS = ("name", "description")
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-LINK_RE = re.compile(r"!??\[[^\]]*\]\(([^)]+)\)")
+LINK_RE = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
 CJK_RANGES = (
     (0x3400, 0x4DBF), (0x4E00, 0x9FFF), (0xF900, 0xFAFF),
     (0x3040, 0x30FF), (0xAC00, 0xD7AF),
@@ -86,10 +88,27 @@ def parse_frontmatter(path: Path) -> tuple[str, str, str, list[str]]:
     return name, description, body, errors
 
 
+def prose_only(body: str) -> str:
+    """Ignore fenced code examples when checking headings and Markdown links."""
+    lines = []
+    fence = ""
+    for line in body.splitlines():
+        match = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
+        if fence:
+            if match and match[1][0] == fence[0] and len(match[1]) >= len(fence) and not match[2].strip():
+                fence = ""
+        elif match:
+            fence = match[1]
+        else:
+            lines.append(line)
+    return "\n".join(lines)
+
+
 def validate_skill(path: Path) -> list[str]:
     errors: list[str] = []
     name, description, body, parse_errors = parse_frontmatter(path)
     errors.extend(parse_errors)
+    body = prose_only(body)
     expected_name = path.parent.name
     if not NAME_RE.fullmatch(name):
         errors.append(f"name is not lowercase kebab-case: {name!r}")
@@ -110,24 +129,128 @@ def validate_skill(path: Path) -> list[str]:
         errors.append("duplicate Markdown heading detected")
     if sum(1 for line in body.splitlines() if re.match(r"^#\s+\S", line)) != 1:
         errors.append("body must contain exactly one level-one title")
-    size = path.stat().st_size
+    try:
+        size = path.stat().st_size
+    except OSError as exc:
+        errors.append(f"cannot stat file: {exc}")
+        return errors
     if not (400 <= size <= 60_000):
         errors.append(f"file size {size} bytes is outside 400..60000")
     for target in LINK_RE.findall(body):
-        target = target.strip().strip("<>")
-        parsed = urlsplit(target)
+        target = target.strip()
+        # Optional Markdown link titles are not part of the destination.
+        target = re.sub(r"""\s+(?:"[^"]*"|'[^']*')$""", "", target).strip("<>")
+        try:
+            parsed = urlsplit(target)
+        except ValueError as exc:
+            errors.append(f"invalid link target {target!r}: {exc}")
+            continue
         if parsed.scheme or target.startswith("//") or not parsed.path:
             continue
-        local = (path.parent / unquote(parsed.path)).resolve()
-        if not local.exists():
-            errors.append(f"relative link points to missing path: {target}")
+        try:
+            local = (path.parent / unquote(parsed.path)).resolve()
+            if not local.exists():
+                errors.append(f"relative link points to missing path: {target}")
+        except (OSError, ValueError, RuntimeError) as exc:
+            errors.append(f"invalid local link {target!r}: {exc}")
     return errors
 
 
-def discover_skills() -> list[Path]:
-    if not SKILLS_ROOT.is_dir():
+def discover_skills(skills_root: Path | None = None) -> list[Path]:
+    skills_root = SKILLS_ROOT if skills_root is None else skills_root
+    if not skills_root.is_dir():
         return []
-    return sorted(SKILLS_ROOT.rglob("SKILL.md"))
+    return sorted(skills_root.rglob("SKILL.md"))
+
+
+def validate_catalog(root: Path, paths: list[Path]) -> list[str]:
+    """Require one correctly named index entry per current skill file."""
+    try:
+        text = (root / "INDEX.md").read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        return [f"cannot read INDEX.md: {exc}"]
+    if "<!-- skill-tree:v1;" in text:
+        return validate_tree_catalog(root, paths)
+    entries = re.findall(r"\[([^\]]+)\]\((skills/[^)\s]+/SKILL\.md)\)", text)
+    counts = Counter(target for _, target in entries)
+    expected = {path.relative_to(root).as_posix() for path in paths}
+    errors = [f"INDEX.md: missing skill link: {target}" for target in sorted(expected - counts.keys())]
+    errors.extend(f"INDEX.md: stale skill link: {target}" for target in sorted(counts.keys() - expected))
+    errors.extend(f"INDEX.md: duplicate skill link ({count}): {target}" for target, count in sorted(counts.items()) if count > 1)
+    errors.extend(f"INDEX.md: link label {name!r} does not match {target}" for name, target in entries if name != Path(target).parent.name)
+    return errors
+
+
+def validate_tree_catalog(root: Path, paths: list[Path]) -> list[str]:
+    """Check exact leaf coverage and all local navigation links in the tree."""
+    expected = {path.resolve() for path in paths}
+    counts: Counter[Path] = Counter()
+    errors = []
+    pages = [root / "INDEX.md", root / "skills/README.md"]
+    categories = {path.relative_to(root / "skills").parts[0] for path in paths}
+    branches = {path.parent.parent for path in paths}
+    pages.extend(root / "skills" / category / "README.md" for category in sorted(categories))
+    pages.extend(branch / "README.md" for branch in sorted(branches))
+    from topic_tree import TOPIC_DIR, build_topics, topic_paths
+    records = {path.parent.name: (path.relative_to(root).as_posix(), "") for path in paths}
+    try:
+        pages.extend(sorted(topic_paths(root, build_topics(root, records))))
+    except (OSError, UnicodeError, ValueError) as exc:
+        return [f"cannot derive topic tree: {exc}"]
+    actual_pages = set((root / "skills").glob("*/README.md")) | set((root / "skills").glob("*/*/README.md"))
+    actual_pages.update((root / "skills").glob(f"*/*/{TOPIC_DIR}/*.md"))
+    errors.extend(f"orphaned navigation page: {page.relative_to(root)}" for page in sorted(actual_pages - set(pages)))
+    texts = {}
+    edges = {page.resolve(): set() for page in pages}
+    for page in pages:
+        try:
+            texts[page.resolve()] = page.read_text(encoding="utf-8")
+        except (OSError, UnicodeError):
+            pass  # The main pass below reports the concrete read error.
+    for page in pages:
+        try:
+            text = page.read_text(encoding="utf-8")
+        except (OSError, UnicodeError) as exc:
+            errors.append(f"cannot read navigation page {page.relative_to(root)}: {exc}")
+            continue
+        if "<!-- skill-tree:v1;" not in text:
+            errors.append(f"missing generated tree marker: {page.relative_to(root)}")
+        for name, target in re.findall(r"\[([^\]]+)\]\(([^)]+)\)", prose_only(text)):
+            try:
+                parsed = urlsplit(target)
+                if parsed.scheme or parsed.netloc:
+                    continue
+                local = (page.parent / unquote(parsed.path)).resolve() if parsed.path else page.resolve()
+                if not local.is_relative_to(root.resolve()):
+                    errors.append(f"navigation link escapes repository: {page.relative_to(root)}: {target}")
+                    continue
+                if not local.exists():
+                    errors.append(f"stale navigation link: {page.relative_to(root)}: {target}")
+                if local in edges:
+                    edges[page.resolve()].add(local)
+                if parsed.fragment and local in texts:
+                    fragment = unquote(parsed.fragment)
+                    anchors = re.findall(r'<a\s+(?:id|name)="([^"]+)"', texts[local])
+                    if fragment not in anchors:
+                        errors.append(f"missing navigation anchor: {page.relative_to(root)}: {target}")
+                if local.name == "SKILL.md":
+                    counts[local] += 1
+                    if name != local.parent.name:
+                        errors.append(f"skill link label {name!r} does not match {target}")
+            except (ValueError, OSError, RuntimeError) as exc:
+                errors.append(f"invalid navigation link: {page.relative_to(root)}: {target}: {exc}")
+    reached = set()
+    pending = [(root / "INDEX.md").resolve()]
+    while pending:
+        page = pending.pop()
+        if page not in reached:
+            reached.add(page)
+            pending.extend(edges.get(page, set()) - reached)
+    errors.extend(f"unreachable navigation page: {page.relative_to(root)}" for page in sorted(edges.keys() - reached))
+    errors.extend(f"missing skill link: {path.relative_to(root)}" for path in sorted(expected - counts.keys()))
+    errors.extend(f"stale skill link: {path.relative_to(root)}" for path in sorted(counts.keys() - expected))
+    errors.extend(f"duplicate skill link ({n}): {path.relative_to(root)}" for path, n in sorted(counts.items()) if n > 1)
+    return errors
 
 
 def validate_all() -> list[str]:
@@ -159,12 +282,19 @@ def validate_all() -> list[str]:
         names.add(name)
         for issue in validate_skill(path):
             errors.append(f"{path.relative_to(ROOT)}: {issue}")
+    errors.extend(validate_catalog(ROOT, paths))
     return errors
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--json", action="store_true", help="emit a machine-readable validation report")
+    args = parser.parse_args()
     skill_paths = discover_skills()
     errors = validate_all()
+    if args.json:
+        print(json.dumps({"skills_scanned": len(skill_paths), "issues": len(errors), "errors": errors}, indent=2))
+        return int(bool(errors))
     if errors:
         for error in errors:
             print(f"FAIL: {error}")
