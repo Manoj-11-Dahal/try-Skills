@@ -156,6 +156,9 @@ python scripts/sync_catalog.py --check
 # Validate every skill, navigation link, section anchor, and catalog listing
 python scripts/validate_skills.py
 
+# Report content quality: shared boilerplate, placeholder sections, in-file repeats
+python scripts/audit_skill_quality.py
+
 # Run the complete regression suite
 python -m unittest discover -s tests -v
 ```

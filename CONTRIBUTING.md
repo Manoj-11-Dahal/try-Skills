@@ -39,6 +39,9 @@ python scripts/validate_skills.py
 # Optional machine-readable output; failures still return exit status 1
 python scripts/validate_skills.py --json
 
+# Report content quality: shared boilerplate, placeholder sections, in-file repeats
+python scripts/audit_skill_quality.py
+
 # Full repository and regression test suite
 python -m unittest discover -s tests -v
 
