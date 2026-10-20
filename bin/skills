@@ -1,0 +1,14 @@
+#!/bin/sh
+# Thin wrapper so the CLI can be run as ./bin/skills from anywhere.
+# Resolves symlinks so a symlink on $PATH still finds scripts/skills_cli.py.
+set -eu
+target=$0
+while [ -L "$target" ]; do
+    link=$(readlink "$target")
+    case $link in
+        /*) target=$link ;;
+        *) target=$(dirname "$target")/$link ;;
+    esac
+done
+root=$(CDPATH= cd -- "$(dirname -- "$target")/.." && pwd)
+exec python3 "$root/scripts/skills_cli.py" "$@"

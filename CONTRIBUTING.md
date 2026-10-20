@@ -39,6 +39,12 @@ python scripts/validate_skills.py
 # Optional machine-readable output; failures still return exit status 1
 python scripts/validate_skills.py --json
 
+# Report content quality: shared boilerplate, placeholder sections, in-file repeats
+python scripts/audit_skill_quality.py
+
+# Compare the current tree against a dated snapshot before a regeneration
+python scripts/compare_snapshots.py backups/before-template-reformat-2026-09-29.tar.gz
+
 # Full repository and regression test suite
 python -m unittest discover -s tests -v
 

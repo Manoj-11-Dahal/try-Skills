@@ -156,6 +156,12 @@ python scripts/sync_catalog.py --check
 # Validate every skill, navigation link, section anchor, and catalog listing
 python scripts/validate_skills.py
 
+# Report content quality: shared boilerplate, placeholder sections, in-file repeats
+python scripts/audit_skill_quality.py
+
+# Compare against a dated snapshot before accepting a corpus-wide regeneration
+python scripts/compare_snapshots.py backups/before-template-reformat-2026-09-29.tar.gz
+
 # Run the complete regression suite
 python -m unittest discover -s tests -v
 ```
